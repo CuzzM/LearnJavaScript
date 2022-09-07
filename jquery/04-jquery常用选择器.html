@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>常用选择器</title>
+    <script src="../jquery.js"></script>
+</head>
+<body>
+    <div class="grandFather">
+        <div class="father">
+            <div class="son">
+                <div class="son-1">
+                    <div class="son-2">
+                        <span class="son-span-1">1</span>
+                    </div>
+                    <span class="son-span-2">2</span>
+                    <div class="abc"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            // 父亲选择器
+            console.log($('.son').parent());
+
+            // 儿子选择器
+            console.log($('.father').children());
+
+            // 子代选择器
+            console.log($('.son').find('span'));
+
+            // 查找兄弟节点,但不包括自己
+            console.log($('.son-2').siblings('span'));
+        })
+    </script>
+</body>
+</html>

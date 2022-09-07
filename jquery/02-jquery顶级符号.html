@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.js"></script>
+</head>
+<body>
+  
+</body>
+    <div>1</div>
+    <div>2</div>
+
+<script>
+    //$符号是jQuery的别称
+    $(document).ready(function(){
+        alert('界面元素准备完成')
+    })
+
+
+    //1. 原生JS获取到的是DOM对象
+    var div1 = document.querySelectorAll('div')
+
+    //2. jQuery获取到的是jQuery对象【本质是一个伪数组】
+    var div2 = $('div')
+
+    console.log(div1)
+    console.log(div2);
+    console.log(div2[0])
+
+    //3. 
+
+</script>
+</html>

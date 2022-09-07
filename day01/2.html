@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>变量</title>
+  </head>
+  <body>
+    <script>
+      function getMax(...args){
+        var length = args.length;
+        if(length == 0){
+            throw "The function getMax takes at least on argument";
+        }
+        var max = args[0]
+        for(let i = 1 ; i < args.length ; i++){
+            if(args[i] > max){
+                max = args[i]
+            }
+        }
+        return max;
+      }
+
+
+        getMax()
+   
+
+      console.log(1)
+      
+    </script>
+  </body>
+</html>

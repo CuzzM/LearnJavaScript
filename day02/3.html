@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>获取和设置属性的方法</title>
+</head>
+<body>
+  <div id="demo" index="1"></div>
+
+  <script>
+    // 1. 自带的属性可以直接获取
+    var div = document.querySelector('div')
+    console.log(div.id);
+    div.id = 'change-demo'
+    console.log('修改之后的demo',div.id);
+
+    // 2. 自定义属性则只能通过getAttribute()方法
+    console.log(div.index);  //undefined
+    console.log(div.getAttribute('index'));
+    console.log(div.setAttribute('index','change-index'));
+
+    // 3. 移除属性
+    div.removeAttribute('index')
+  </script>
+</body>
+</html>

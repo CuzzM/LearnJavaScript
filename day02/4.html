@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tab切换</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    .tab-header ul{
+      width: 850px;
+      margin: 200px auto;
+      margin-bottom: 0px;
+      height: 49px;
+      display: flex;
+      background-color: #eef1ee;
+    }
+    .tab-header li {
+      text-align: center;
+      width: 130px;
+      height: 49px;
+      padding: 0 20px;
+      line-height: 49px;
+      color: #1b1031;
+    }
+    li {
+      list-style: none;
+    }
+
+    .active-tab{
+      color: #fff!important;
+      background-color: #d2261e;
+    }
+
+    .tab-content{
+      width: 850px;
+      margin: 0 auto;
+    }
+
+    /* 初始时隐藏所有内容 */
+    .tab-content-item {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="tab-header">
+      <ul>
+        <li class="active-tab">商品介绍</li>
+        <li>规格与包装</li>
+        <li>售后保障</li>
+        <li>商品评价(50000)</li>
+        <li>手机社区</li>
+      </ul>
+    </div>
+    <div class="tab-content">
+      <!-- 默认显示 -->
+      <div class="tab-content-item" style="display: block;">
+        商品介绍模块
+      </div>
+      <div class="tab-content-item">
+        规格与包装模块
+      </div>
+      <div class="tab-content-item">
+        售后模块
+      </div>
+      <div class="tab-content-item">
+        商品评价模块
+      </div>
+      <div class="tab-content-item">
+        手机社区模块
+      </div>
+    </div>
+  </div>
+  <script>
+    //1. 先处理点击tab变色
+    let lis = document.querySelector('.tab-header').querySelectorAll('li')
+    let items = document.querySelector('.tab-content').querySelectorAll('.tab-content-item')
+    lis.forEach((li,index) => {
+      // 给li添加自定义索引
+      li.setAttribute('index',index)
+
+      li.onclick = function(){
+        //清除li的原有类
+        lis.forEach((li) => {
+          li.className = '';
+        })
+        this.className = 'active-tab'
+
+        items.forEach((item) => {
+          item.style.display = 'none'
+        })
+        items[index].style.display = 'block'
+      }
+    })
+
+  
+  </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>百度换肤</title>
+  <style>
+    ul {
+      display: flex;
+    }
+    ul li img{
+      width: 100px;
+      height: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <ul>
+    <li><img src="../images/1.jpg"></li>
+    <li><img src="../images/2.jpg"></li>
+    <li><img src="../images/3.jpg"></li>
+    <li><img src="../images/4.jpg"></li>
+  </ul>
+
+  <script>
+    //1.获取元素
+    let images = document.querySelector('ul').querySelectorAll('img')
+
+    //2.注册事件
+    images.forEach((img) => {
+      img.onclick = function(){
+        document.body.style.backgroundImage = `url(${this.src})`
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>改变元素内容</title>
+  <style>
+    div {
+      width: 300px;
+      height: 300px;
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+  <button>显示当前系统的时间</button>
+  <div>某个时间</div>
+  <p>1123</p>
+  <script>
+    //获取元素
+    let btn = document.querySelector('button')
+    let div = document.querySelector('div')
+    btn.onclick = function(){
+      div.innerHTML += `:2022-09-06`
+    }
+
+  </script>
+</body>
+</html>

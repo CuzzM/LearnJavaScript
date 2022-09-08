@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>操作元素的属性</title>
+</head>
+<body>
+  <input type="text" value="Hello"/>
+  <input type="button" id="btn" value="切换">
+  <script>
+    // 修改input中的type类型
+    let btn = document.querySelector('#btn');
+    let input = document.querySelector('input');
+    console.dir(input)
+    btn.onclick = function(){
+      let typeArray = ['text','password','button'];
+      let length = typeArray.length;
+      for(let i = 0 ; i < length ; i++){
+        if(typeArray[i] === input.type){
+          input.type = typeArray[(i+1)%3]
+          return;
+        }
+      }
+    }
+  </script>
+</body>
+</html>

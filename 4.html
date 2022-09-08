@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>操作元素的样式</title>
+  <style>
+    .a {
+      width: 200px;
+      height: 200px;
+      border: 1px solid blue;
+    }
+
+    .b {
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="a">123</div>
+  <script>
+    // 点击div修改div自身的背景颜色
+    document.querySelector('div').onclick = function(){
+      // this代表当前触发事件的元素
+      // 1. 方式1: 直接修改行内style
+      this.style.background = 'red';
+
+      // 2. 方式2: 添加类名
+      this.className += ' b'
+    }
+  </script>
+</body>
+</html>

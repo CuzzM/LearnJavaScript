@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>表单验证</title>
+</head>
+<body>
+  <input type="text">
+  <span></span>
+
+  <script>
+    //1.获取input
+    let input = document.querySelector('input')
+    let span  = document.querySelector('span')
+    //2. 失去焦点时判断密码是否合理
+    input.onblur = function(){
+      if(input.value.length < 6 || input.value.length > 16){
+        span.innerHTML = '×请输入6-16位密码'
+        span.style.color = 'red'
+      }else {
+        span.innerHTML = '√输入合法'
+        span.style.color = 'green'
+      }
+    }
+
+  </script>
+</body>
+</html>

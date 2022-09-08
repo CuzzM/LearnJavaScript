@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>表格隔行变色</title>
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .header {
+      background-color: #7ec7ea;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 800px;
+    }
+
+    th,
+    td {
+      text-align: center;
+      border-bottom: 1px solid #ccc;
+      color: #333c9a;
+      height: 40px;
+    }
+
+    th {
+      color: #000;
+    }
+
+    .highlight {
+      background-color: pink;
+    }
+
+    input[type='checkbox']{
+      zoom: 150%
+    }
+  </style>
+</head>
+
+<body>
+  <table>
+    <thead>
+      <tr class="header">
+        <th>
+          <input type="checkbox" id="header-checkbox">
+        </th>
+        <th>代码</th>
+        <th>名称</th>
+        <th>最新公布净值</th>
+        <th>累计净值</th>
+      </tr>
+    </thead>
+    <tbody>
+
+
+      <tr>
+        <td>
+          <input type="checkbox">
+        </td>
+        <td>003526</td>
+        <td>开放三个月优惠券</td>
+        <td>1.075</td>
+        <td>1.079</td>
+      </tr>
+      <tr>
+        <td>
+          <input type="checkbox">
+        </td>
+        <td>003526</td>
+        <td>开放三个月优惠券</td>
+        <td>1.075</td>
+        <td>1.079</td>
+      </tr>
+      <tr>
+        <td>
+          <input type="checkbox">
+        </td>
+        <td>003526</td>
+        <td>开放三个月优惠券</td>
+        <td>1.075</td>
+        <td>1.079</td>
+      </tr>
+      <tr>
+        <td>
+          <input type="checkbox">
+        </td>
+        <td>003526</td>
+        <td>开放三个月优惠券</td>
+        <td>1.075</td>
+        <td>1.079</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+
+<script>
+  var trs = document.querySelector('tbody').querySelectorAll('tr')
+  trs.forEach((tr) => {
+    // 鼠标经过事件,添加高亮
+    tr.onmouseover = function(){
+      this.className = 'highlight'
+    }
+
+    tr.onmouseout = function(){
+      this.className = ''
+    }
+  })
+
+  //全选和非全选  thead————> tbody
+  let header_checkbox = document.querySelector('thead').querySelector('#header-checkbox')
+  let body_checkbox = document.querySelector('tbody').querySelectorAll('input')
+  header_checkbox.onclick = function(){
+    let flag = this.checked;
+    body_checkbox.forEach((item) => {
+      item.checked = flag;
+    })
+  }
+
+  // tbody ——> thead
+  body_checkbox.forEach(item => {
+    item.onclick = function(){
+      // 开始默认为ture,只要有一个没选中就为false
+      let flag = true;
+      for(let i = 0 ; i < body_checkbox.length ; i++){
+        if(!body_checkbox[i].checked){
+          flag = false
+          break;
+        }
+      }
+      header_checkbox.checked = flag
+    }
+  })
+
+  
+
+</script>
+
+</html>
